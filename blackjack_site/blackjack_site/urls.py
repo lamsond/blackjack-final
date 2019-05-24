@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from blackjack import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('new_game/', views.new_game),
+    path('play/', views.play),
+    path('leaderboard/', views.leaderboard),
 ]
+
