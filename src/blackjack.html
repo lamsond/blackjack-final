@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+  
+  <link href="https://fonts.googleapis.com/css?family=Ranga&display=swap" rel="stylesheet"> 
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+HK&display=swap" rel="stylesheet"> 
+    <title>blackjack</title>
+    <style>
+    /* #3761ed; #e81010; #010302;
+    Oswald, Ranga, Arial */
+    
+    body{
+        font-family: Arial;
+        background-color: #f3f3f3;
+    }
+    
+    a{
+        font-family: Ranga;
+        font-size: 5vh;
+        text-decoration: none;
+        color: #e81010;
+    }
+    h1, h2{
+     text-align: center;
+     font-family: Oswald;
+    }
+    
+    h1{
+        color: white;
+        font-size: 8vh;
+        margin-top: 0;
+    }
+    
+    #navbar{
+        list-style-type: none;
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    #header{
+        background-color: #010302;
+    }
+    
+    .card-row{
+        display: flex;
+        justify-content: center;
+    }
+    
+    .card{
+        width: 18vw;
+        height: 25vw;
+        max-width: 150px;
+        max-height: 210px;
+        border: 1px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14vw;
+        margin: 1vw;
+        color: #010302;
+        background-color: white;
+        border-radius: 5px;
+        border: 2px solid #010302;
+    }
+    
+    #buttons{
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+    }
+    </style>
+  </head>
+  <body>
+    <div id='header'>
+      <ul id='navbar'>
+        <li><a href=''>new game</a></li>
+        <li><a href=''>leaderboard</a></li>
+        <li><a href=''>about project</a></li>
+      </ul>
+      <h1 id='title'>blackjack</h1>
+    </div>
+    <h2>dealer cards</h2>
+    <div class='card-row' id='dealer'>
+      <div class='card' id='dc1'>
+        <span class='card-value' id='dealer_down'>?</span>
+      </div>
+      <div class='card' id='dc2'>
+        <span class='card-value' id='dealer_up'>9</span>
+      </div>
+    </div>
+    <h2>W: <span id='win-count'>0</span>&nbsp;&nbsp;&nbsp;&nbsp;L: <span id='loss-count'>0</span></h2>
+    <div class='card-row' id='player'>
+      <div class='card' id='pc1'>
+        <span class='card-value' id='player_up1'>K</span>
+      </div>
+      <div class='card' id='pc2'>
+        <span class='card-value' id='player_up2'>5</span> 
+      </div>
+    </div>
+    <div id='buttons'>
+      <form action="">
+        <button type='button' id='deal'>deal</button>
+        <button type='button'>hit</button>
+        <button type='button'>stand</button>
+        <button type='submit'>save</button>
+      </form>
+    </div>
+    <script>
+        const deal = document.querySelector('#deal');
+        const dealer_up = document.querySelector('#dealer_up');
+        const dealer_down = document.querySelector('#dealer_down');
+        const player_up1 = document.querySelector('#player_up1');
+        const player_up2 = document.querySelector('#player_up2');
+        
+        deal.addEventListener('click', dealCards);
+        
+        var card_arr = [];
+        buildDeck();
+        
+        
+        function buildDeck(){
+            for(var i = 2; i <= 10; i++){
+                for(var j = 0; j < 4; j++){
+                    card_arr.push(i.toString());
+                }
+            }
+            let faceCards = ['J', 'Q', 'K', 'A'];
+            for(var i = 0; i < faceCards.length; i++){
+                for(var j = 0; j < 4; j++){
+                    card_arr.push(faceCards[i]);
+                }
+            }
+            console.log(card_arr);
+        }
+        
+        function dealCards(){
+            /* randomly select 4 cards
+             remove them from the array
+             display the text in the html
+             suppose random value was 'J'
+             e.g.
+             dealer_up.innerHTML = 'J';
+             */
+             
+            
+        }
+        
+        
+    </script>
+  </body>
+</html>
+
