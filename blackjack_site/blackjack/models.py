@@ -1,6 +1,7 @@
 from django.db import models
 
 class Game(models.Model):
-    player = models.CharField(max_length=50)
-    score = models.IntegerField()
+    player = models.CharField(max_length=3)
+    wins = models.IntegerField()
+    losses = models.IntegerField()
 
