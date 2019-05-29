@@ -2,11 +2,15 @@
 a group web project to create a canvas blackjack game with django backend
 
 Color 1  Was #3761ed   Now #2d7ffa: A light blue
+
 Color 2:#e81010: A light red
+
 Color 3:#010302: Black
 
 Font 1: Oswald: Got from google fonts
+
 Font 2: Ranga: Got from google fonts
+
 Font 3: Arial: Got from codehs
 
 
