@@ -24,7 +24,8 @@ W/L to be the black/arial?
 
 The buttons to be black/maybe arial or oswald?
 
+New Game, leaderboard, about project, to be 15-18px?
 
-
+Buttons to be color3/Arial/16px?
 
 
