@@ -1,0 +1,63 @@
+h1{
+          font-family:Oswald;
+          color:#2d7ffa;
+          text-align: center;
+      }
+      
+h2{
+          font-family:Ranga;
+          color:#e81010;
+          text-align: center
+      }
+      
+ h3{
+          font-family: Arial;
+          color:#010302;
+          text-align: center
+      }
+      
+
+      
+#heading{
+    font-size:15px;
+    
+}
+
+#navbar{
+list-style-type: none;
+display: flex;
+justify-content: space-around;
+}
+
+.card-row{
+display: flex;
+justify-content: center;
+}
+
+.card{
+width: 18vw;
+height: 25vw;
+max-width: 150px;
+max-height: 210px;
+border: 1px solid black;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 14vw;
+margin: 1vw;
+}
+
+#buttons{
+margin-top: 10px;
+display: flex;
+justify-content: center;
+
+}
+
+#buttons button{
+    font-family: Arial;
+    color:#010302;
+    font-size:16px;
+    
+    
+}
