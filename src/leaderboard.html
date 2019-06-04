@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Leaderboard</title>
+    <style>
+      body {
+          text-align: center;
+      }
+      h1{
+          font-family:Oswald;
+          color:#3761ed;
+          
+      }
+      
+      th{
+          border-color: black;
+          border-style: solid;
+          border-width: 1px;
+          font-size: 20px;
+          font-family:Ranga;
+          color:#e81010
+      }
+      td{
+          border-color: black;
+          border-style: solid;
+          border-width: 1px;
+          font-size: 15px;
+          font-family: Arial;
+          color:#010302;
+      }
+      .top{
+          border-top-width: 0px;
+      }
+      .bottom{
+          border-bottom-width: 0px;
+      }
+      .beggin{
+          border-left-width: 0px;
+      }
+      .end{
+          border-right-width: 0px;
+      }
+      .invis{
+          border-top-width: 0px;
+          border-bottom-width: 0px;
+      }
+      #blank{
+          border-left-width: 0px;
+      }
+      table {
+          margin: auto;
+          border-collapse: collapse;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <h1>Blackjack Leaderboard</h1>
+    <table>
+    <!-- Makes table, has id's and classes for css -->
+      <tr>
+        <th class= "invis" id="blank">    </th>
+        <th class= "invis"># of Games</th>
+        <th class= "invis">Win/Loss</th>
+      </tr>
+      <tr>
+        <th class= "top beggin row1">Name</th>
+        <th class= "top">Played</th>
+        <th class= "top">Ratio</th>
+        <th class= "top">Wins</th>
+        <th class= "top end">Losses</th>
+      </tr>
+      <tr>
+        <td class= "name beggin">---</td>
+        <td class= "games">---</td>
+        <td class= "wl">---</td>
+        <td class= "win">---</td>
+        <td class= "loss end">---</td>
+      </tr>
+      <tr>
+        <td class= "name1 beggin">---</td>
+        <td class= "games1">---</td>
+        <td class= "wl1">---</td>
+        <td class= "win1">---</td>
+        <td class= "loss1 end">---</td>
+      </tr>
+      <tr>
+        <td class= "name2 beggin">---</td>
+        <td class= "games2">---</td>
+        <td class= "wl2">---</td>
+        <td class= "win2">---</td>
+        <td class= "loss2 end">---</td>
+      </tr>
+      <tr>
+        <td class= "name3 beggin">---</td>
+        <td class= "games3">---</td>
+        <td class= "wl3">---</td>
+        <td class= "win3">---</td>
+        <td class= "loss3 end">---</td>
+      </tr>
+      <tr>
+        <td class= "name4 beggin bottom">---</td>
+        <td class= "games4 bottom">---</td>
+        <td class= "wl4 bottom">---</td>
+        <td class= "win4 bottom">---</td>
+        <td class= "loss4 end bottom">---</td>
+      </tr>
+    </table>
+    <!-- this is for debugging use at own risk! -->
+    name
+    <input id= "debug-name" type="text">
+    <br>
+    win
+    <input id= "debug-win" type="number">
+    <br>
+    loss
+    <input id= "debug-loss" type="number">
+    <br>
+    <!-- starts the javascript part -->
+    <script>
+      //grabs debug strs, loads into console, and sets on leaderboard
+      const debugName = document.querySelector('#debug-name')
+      const tdName = document.querySelector('.name')
+      function debugNameLog(e){
+          console.log(debugName.value)
+          tdName.innerHTML = this.value;
+      }
+      debugName.addEventListener("change", debugNameLog);
+      
+      //Wins
+      const debugWin = document.querySelector('#debug-win')
+      const tdWin = document.querySelector('.win')
+      function debugWinLog(e){
+          console.log(debugWin.value)
+          tdWin.innerHTML = this.value;
+          debugGamesLog()
+      }
+      debugWin.addEventListener("change", debugWinLog);
+      
+      //Losses
+      const debugLoss = document.querySelector('#debug-loss')
+      const tdLoss = document.querySelector('.loss')
+      function debugLossLog(e){
+          console.log(debugLoss.value)
+          tdLoss.innerHTML = this.value;
+          debugGamesLog()
+      }
+      debugLoss.addEventListener("change", debugLossLog);
+      
+      //Number of games
+      const tdGames = document.querySelector('.games')
+      function debugGamesLog(){
+          const debugGames = parseInt(debugWin.value) + parseInt(debugLoss.value)
+          console.log(debugGames)
+          tdGames.innerHTML = debugGames;
+          debugWLLog(debugGames)
+      }
+      
+      //Win loss ratio
+      const tdWL = document.querySelector('.wl')
+      function debugWLLog(debugGames){
+          var debugWL = parseFloat(debugWin.value) / parseFloat(debugGames)
+          debugWL = debugWL.toFixed(2);
+          console.log(debugWL)
+          tdWL.innerHTML = debugWL;
+      }
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </script>
+  </body>
+</html>
+
