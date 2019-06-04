@@ -8,19 +8,13 @@
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+HK&display=swap" rel="stylesheet"> 
     <title>blackjack</title>
     
-  <link rel="stylesheet" type="text/css" href="my_style.css">
- 
-    /* #3761ed; #e81010; #010302;
-    Oswald, Ranga, Arial */
-    
-    
-
+  <link rel="stylesheet" type="text/css" href="my_style.css"> 
   </head>
   <body>
     <div id='header'>
       <ul id='navbar'>
         <li><a href=''>new game</a></li>
-        <li><a href=''>leaderboard</a></li>
+        <li><a href='leaderboard.html'>leaderboard</a></li>
         <li><a href=''>about project</a></li>
       </ul>
       <h1 id='title'>blackjack</h1>
@@ -45,40 +39,159 @@
     </div>
     <div id='buttons'>
       <form action="">
-        <button type='button' id='deal'>deal</button>
-        <button type='button'>hit</button>
-        <button type='button'>stand</button>
-        <button type='submit'>save</button>
+        <button type='button' id='deal' class='color'>deal</button>
+        <button type='button' id='hit' class='color'>hit</button>
+        <button type='button' id='stand' class='color'>stand</button>
+        <button type='submit' class='color'>save</button>
       </form>
     </div>
     <script>
+        const hit = document.querySelector('#hit');
         const deal = document.querySelector('#deal');
-        const dealer_up = document.querySelector('#dealer_up');
-        const dealer_down = document.querySelector('#dealer_down');
-        const player_up1 = document.querySelector('#player_up1');
-        const player_up2 = document.querySelector('#player_up2');
         
         deal.addEventListener('click', dealCards);
+        hit.addEventListener('click', hitme);
         
-        var card_arr = [];
+        var AH = {value:11, image:""};
+        var AS = {value:11, image:""};
+        var AC = {value:11, image:""};
+        var AD = {value:11, image:""};
+
+        var twoH = {value:2, image:""};
+        var twoS = {value:2, image:""};
+        var twoC = {value:2, image:""};
+        var twoD = {value:2, image:""};
+
+        var threeH = {value:3, image:""};
+        var threeS = {value:3, image:""};
+        var threeC = {value:3, image:""};
+        var threeD = {value:3, image:""};
+
+        var fourH = {value:4, image:""};
+        var fourS = {value:4, image:""};
+        var fourC = {value:4, image:""};
+        var fourD = {value:4, image:""};
+
+        var fiveH = {value:5, image:""};
+        var fiveS = {value:5, image:""};
+        var fiveC = {value:5, image:""};
+        var fiveD = {value:5, image:""};
+
+        var sixH = {value:6, image:""};
+        var sixS = {value:6, image:""};
+        var sixC = {value:6, image:""};
+        var sixD = {value:6, image:""};
+
+        var sevenH = {value:7, image:""};
+        var sevenS = {value:7, image:""};
+        var sevenC = {value:7, image:""};
+        var sevenD = {value:7, image:""};
+
+        var eightH = {value:8, image:""};
+        var eightS = {value:8, image:""};
+        var eightC = {value:8, image:""};
+        var eightD = {value:8, image:""};
+
+        var nineH = {value:9, image:""};
+        var nineS = {value:9, image:""};
+        var nineC = {value:9, image:""};
+        var nineD = {value:9, image:""};
+
+        var tenH = {value:10, image:""};
+        var tenS = {value:10, image:""};
+        var tenC = {value:10, image:""};
+        var tenD = {value:10, image:""};
+
+        var KH = {value:10, image:""};
+        var KS = {value:10, image:""};
+        var KC = {value:10, image:""};
+        var KD = {value:10, image:""};
+
+        var QH = {value:10, image:""};
+        var QS = {value:10, image:""};
+        var QC = {value:10, image:""};
+        var QD = {value:10, image:""};
+
+        var JH = {value:10, image:""};
+        var JS = {value:10, image:""};
+        var JC = {value:10, image:""};
+        var JD = {value:10, image:""};
+
+	//adds cards to deck
+        var cards = [];
+        var yourCards = [];
+        var them = [];
+
         buildDeck();
-        
-        
+        console.log(cards);
+
         function buildDeck(){
-            for(var i = 2; i <= 10; i++){
-                for(var j = 0; j < 4; j++){
-                    card_arr.push(i.toString());
-                }
-            }
-            let faceCards = ['J', 'Q', 'K', 'A'];
-            for(var i = 0; i < faceCards.length; i++){
-                for(var j = 0; j < 4; j++){
-                    card_arr.push(faceCards[i]);
-                }
-            }
-            console.log(card_arr);
+            cards.push(AH);
+            cards.push(AS);
+            cards.push(AC);
+            cards.push(AD);
+            
+            cards.push(twoH);
+            cards.push(twoS);
+            cards.push(twoC);
+            cards.push(twoD);
+            
+            cards.push(threeH);
+            cards.push(threeS);
+            cards.push(threeC);
+            cards.push(threeD);
+            
+            cards.push(fourH);
+            cards.push(fourS);
+            cards.push(fourC);
+            cards.push(fourD);
+            
+            cards.push(fiveH);
+            cards.push(fiveS);
+            cards.push(fiveC);
+            cards.push(fiveD);
+            
+            cards.push(sixH);
+            cards.push(sixS);
+            cards.push(sixC);
+            cards.push(sixD);
+            
+            cards.push(sevenH);
+            cards.push(sevenS);
+            cards.push(sevenC);
+            cards.push(sevenD);
+            
+            cards.push(eightH);
+            cards.push(eightS);
+            cards.push(eightC);
+            cards.push(eightD);
+            
+            cards.push(nineH);
+            cards.push(nineS);
+            cards.push(nineC);
+            cards.push(nineD);
+            
+            cards.push(tenH);
+            cards.push(tenS);
+            cards.push(tenC);
+            cards.push(tenD);
+            
+            cards.push(KH);
+            cards.push(KS);
+            cards.push(KC);
+            cards.push(KD);
+            
+            cards.push(QH);
+            cards.push(QS);
+            cards.push(QC);
+            cards.push(QD);
+            
+            cards.push(JH);
+            cards.push(JS);
+            cards.push(JC);
+            cards.push(JD);
         }
-        
+       
         function dealCards(){
             /* randomly select 4 cards
              remove them from the array
@@ -87,11 +200,70 @@
              e.g.
              dealer_up.innerHTML = 'J';
              */
-             
             
+            var randomIndex = Math.floor(Math.random() * cards.length);
+            //console.log(randomIndex);
+            yourCards.push(cards[randomIndex]);
+            //console.log(cards)
+            
+            cards.splice(randomIndex, 1);
+            //console.log(cards)
+            
+            var randomIndex = Math.floor(Math.random() * cards .length);
+            //console.log(randomIndex);
+            yourCards.push(cards[randomIndex]);
+            //console.log(cards)
+            cards.splice(randomIndex, 1);
+            //console.log(cards)
+            
+            var randomIndex = Math.floor(Math.random() * cards.length);
+            //console.log(randomIndex);
+            them.push(cards[randomIndex]);
+            //console.log(cards);
+            cards.splice(randomIndex, 1);
+            //console.log(cards);
+            
+            var randomIndex = Math.floor(Math.random() * cards.length);
+            //console.log(randomIndex);
+            them.push(cards[randomIndex]);
+            //console.log(cards);
+            cards.splice(randomIndex, 1);
+            //console.log(cards);
+            //var randomCard = card_arr[randomIndex];
+            //console.log(randomCard);
+            console.log(yourCards);
+            console.log(cards);
+            console.log(them);
+            //var removeCardFromDeck = card_arr.splice(randomCard, 1);
+            //console.log(card_arr);
         }
-        
-        
+        function hitme(){
+            var randomIndex = Math.floor(Math.random() * cards.length);
+            console.log(randomIndex);
+            yourCards.push(cards[randomIndex]);
+            console.log(cards)
+            cards.splice(randomIndex, 1);
+            console.log(cards)
+        }
+        //This is for the win and lose feature
+
+        var wincounter = 0;
+        var losscounter = 0;
+
+        function winCounter(){
+            var win = document.getElementById("win-count");
+            console.log(win);
+            win.innerHTML = ++wincounter;
+            console.log(wincounter);
+        }
+
+        function lossCounter(){
+            var loss = document.getElementById("loss-count");
+            console.log(loss);
+            loss.innerHTML = ++losscounter;
+            console.log(losscounter);
+        }  
+            
     </script>
   </body>
 </html>
